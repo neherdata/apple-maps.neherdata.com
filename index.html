@@ -9,6 +9,11 @@
   width: 100%;
   height: 640px;
 }
+h1 {
+  font-family: "Lucida Console", Courier, monospace;
+  font-style: oblique;
+  text-align: center;
+}
 </style>
 
 <!-- TODO: Add the value of data-initial-token with a JWT
@@ -54,7 +59,7 @@ const main = async() => {
     );
 
     // Create a map in the element whose ID is "map-container"
-    const map = new mapkit.Map("map-container");
+    const map = new mapkit.Map("map-container", {colorScheme: mapkit.Map.ColorSchemes.Dark});
     map.region = secretariat;
 };
 
@@ -64,6 +69,7 @@ main();
 </head>
 
 <body>
+    <h1>Apple Maps MapKit JS | Neher Data Systems</h1>
     <div id="map-container"></div>
 </body>
 </html>
