@@ -1,4 +1,4 @@
-[![GitHub Pages Static Deploy](https://github.com/neherdata/maps-neherdata-com/actions/workflows/static.yml/badge.svg)](https://github.com/neherdata/maps-neherdata-com/actions/workflows/static.yml)
+[![GitHub Pages Static Deploy](https://github.com/neherdata/maps-neherdata-com/actions/workflows/static.yml/badge.svg?branch=main)](https://github.com/neherdata/maps-neherdata-com/actions/workflows/static.yml)
 
 # maps.neherdata.com
 
