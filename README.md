@@ -1,3 +1,5 @@
+[![GitHub Pages Static Deploy](https://github.com/neherdata/maps-neherdata-com/actions/workflows/static.yml/badge.svg)](https://github.com/neherdata/maps-neherdata-com/actions/workflows/static.yml)
+
 # maps.neherdata.com
 
 ## Geocode
