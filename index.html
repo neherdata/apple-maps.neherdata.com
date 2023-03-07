@@ -1,75 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
+
 <head>
+  <meta charset="utf-8">
+  <title>Apple Maps MapKit JS | Neher Data Systems</title>
+  <meta name="viewport" content="width=device-width" />
 
-<meta charset="utf-8">
+  <style>
+    #map-container {
+      width: 100%;
+      height: 640px;
+    }
 
-<style>
-#map-container {
-  width: 100%;
-  height: 640px;
-}
-h1 {
-  font-family: "Lucida Console", Courier, monospace;
-  font-style: oblique;
-  text-align: center;
-}
-</style>
+    h1 {
+      font-family: "Lucida Console", Courier, monospace;
+      font-style: oblique;
+      text-align: center;
+    }
+  </style>
 
-<!-- TODO: Add the value of data-initial-token with a JWT
-dynamically generated on the server -->
-<script
-  src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.core.js"
-  crossorigin async
-  data-callback="initMapKit"
-  data-libraries="map,services,full-map,geojson"
-  data-initial-token="eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1YTTlQRlRTMkYifQ.eyJpc3MiOiI3UUFNM0xHU1NDIiwiaWF0IjoxNjc3OTIxNTQzLCJleHAiOjE3MDk1MTA0MDB9.Anu5SLkMd9vWuqVjDtWe9ZV8K7LlwBD0fEtD8TetmIdAnRdZaDQt3EQBa3EYqF3lVGvjvRm_GzRNpyZq6X8m9w"
-></script>
-<script type="module">
-/**
- * Wait for MapKit JS to be loaded by the script tag,
- * calls `mapkit.init` to set authorizationCallback with your JWT.
- */
-const setupMapKitJs = async() => {
-    if (!window.mapkit || window.mapkit.loadedLibraries.length === 0) {
+  <!-- TODO: Add the value of data-initial-token with a JWT dynamically generated on the server -->
+  <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.core.js" crossorigin async data-callback="initMapKit"
+    data-libraries="map,services,full-map,geojson"
+    data-initial-token="eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1YTTlQRlRTMkYifQ.eyJpc3MiOiI3UUFNM0xHU1NDIiwiaWF0IjoxNjc3OTIxNTQzLCJleHAiOjE3MDk1MTA0MDB9.Anu5SLkMd9vWuqVjDtWe9ZV8K7LlwBD0fEtD8TetmIdAnRdZaDQt3EQBa3EYqF3lVGvjvRm_GzRNpyZq6X8m9w"></script>
+  <script type="module">
+    /**
+     * Wait for MapKit JS to be loaded by the script tag,
+     * calls `mapkit.init` to set authorizationCallback with your JWT.
+     */
+    const setupMapKitJs = async () => {
+      if (!window.mapkit || window.mapkit.loadedLibraries.length === 0) {
         // mapkit.core.js or the libraries are not loaded yet.
         // Set up the callback and wait for it to be called.
         await new Promise(resolve => { window.initMapKit = resolve });
 
         // Clean up
         delete window.initMapKit;
-    }
+      }
 
-    // TODO: For production use, the JWT should not be hard-coded into JS.
-    const jwt = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1YTTlQRlRTMkYifQ.eyJpc3MiOiI3UUFNM0xHU1NDIiwiaWF0IjoxNjc3OTIxNTQzLCJleHAiOjE3MDk1MTA0MDB9.Anu5SLkMd9vWuqVjDtWe9ZV8K7LlwBD0fEtD8TetmIdAnRdZaDQt3EQBa3EYqF3lVGvjvRm_GzRNpyZq6X8m9w";
-    mapkit.init({
+      // TODO: For production use, the JWT should not be hard-coded into JS.
+      const jwt = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1YTTlQRlRTMkYifQ.eyJpc3MiOiI3UUFNM0xHU1NDIiwiaWF0IjoxNjc3OTIxNTQzLCJleHAiOjE3MDk1MTA0MDB9.Anu5SLkMd9vWuqVjDtWe9ZV8K7LlwBD0fEtD8TetmIdAnRdZaDQt3EQBa3EYqF3lVGvjvRm_GzRNpyZq6X8m9w";
+      mapkit.init({
         authorizationCallback: done => { done(jwt); }
-    });
-};
+      });
+    };
 
-/**
- * Script Entry Point
- */
-const main = async() => {
-    await setupMapKitJs();
+    /**
+     * Script Entry Point
+     */
+    const main = async () => {
+      await setupMapKitJs();
 
-    const secretariat = new mapkit.CoordinateRegion(
+      const secretariat = new mapkit.CoordinateRegion(
         new mapkit.Coordinate(40.3083382, -74.0697479),
         new mapkit.CoordinateSpan(0.167647972, 0.354985255)
-    );
+      );
 
-    // Create a map in the element whose ID is "map-container"
-    const map = new mapkit.Map("map-container", {colorScheme: mapkit.Map.ColorSchemes.Dark});
-    map.region = secretariat;
-};
+      // Create a map in the element whose ID is "map-container"
+      const map = new mapkit.Map("map-container", { colorScheme: mapkit.Map.ColorSchemes.Dark });
+      map.region = secretariat;
+    };
 
-main();
+    main();
 
-</script>
+  </script>
 </head>
 
 <body>
-    <h1>Apple Maps MapKit JS | Neher Data Systems</h1>
-    <div id="map-container"></div>
+  <h1>Apple Maps MapKit JS | Neher Data Systems</h1>
+  <div id="map-container"></div>
 </body>
+
 </html>
