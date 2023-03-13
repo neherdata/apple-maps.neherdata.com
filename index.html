@@ -17,6 +17,12 @@
       font-style: oblique;
       text-align: center;
     }
+    
+    h2 {
+      font-family: "Lucida Console", Courier, monospace;
+      font-style: oblique;
+      text-align: center;
+    }
 
     p {
       font-family: "Lucida Console", Courier, monospace;
@@ -45,7 +51,7 @@
         delete window.initMapKit;
       }
 
-      // TODO: For production use, the JWT should not be hard-coded into JS.
+      // TODO: For production use, the JWT should not be hard-ecoded into JS.
       const jwt = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1YTTlQRlRTMkYifQ.eyJpc3MiOiI3UUFNM0xHU1NDIiwiaWF0IjoxNjc3OTIxNTQzLCJleHAiOjE3MDk1MTA0MDB9.Anu5SLkMd9vWuqVjDtWe9ZV8K7LlwBD0fEtD8TetmIdAnRdZaDQt3EQBa3EYqF3lVGvjvRm_GzRNpyZq6X8m9w";
       mapkit.init({
         authorizationCallback: done => { done(jwt); }
@@ -79,7 +85,8 @@
 </head>
 
 <body>
-  <h1>Apple Maps MapKit JS | Neher Data Systems</h1>
+  <h1>Apple Maps MapKit JS</h1>
+  <h2>Neher Data Systems</h2>
   <div id="map-container"></div>
 </body>
 
