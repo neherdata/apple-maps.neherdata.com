@@ -49,13 +49,23 @@
         done(jwt);
       }
     });
+    
+    var nds = new mapkit.Coordinate(40.3083382, -74.0697479);
+    
+    // Setting properties on creation:
+    // var ndsAnnotation = new MarkerAnnotation(nds, { color: "pink", title: "Neher Data Systems", glyphText: "🏢" });
+
 
     const secretariat = new mapkit.CoordinateRegion(
       new mapkit.Coordinate(40.3083382, -74.0697479),
       new mapkit.CoordinateSpan(0.167647972, 0.354985255)
     );
     var map = new mapkit.Map("map", { colorScheme: mapkit.Map.ColorSchemes.Dark });
+    
     map.region = secretariat;
+    // Add and show both annotations on the map
+    map.showItems([ndsAnnotation]);
+
   </script>
 </body>
 
