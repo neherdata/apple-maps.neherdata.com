@@ -62,9 +62,13 @@
         new mapkit.CoordinateSpan(0.167647972, 0.354985255)
       );
 
+      var secretariatpoint = new mapkit.MarkerAnnotation(new mapkit.Coordinate(40.3083382, -74.0697479), { title: "Neher Data Systems" });
       // Create a map in the element whose ID is "map-container"
       const map = new mapkit.Map("map-container", { colorScheme: mapkit.Map.ColorSchemes.Dark });
       map.region = secretariat;
+      map.showitems([secretariatpoint],               { animate: true,
+                padding: new mapkit.Padding(60, 25, 60, 25)
+              });  
     };
 
     main();
