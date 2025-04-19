@@ -31,7 +31,9 @@
 </body>
 
 <footer>
-  <p>© 2024 <a href="https://www.apple.com/legal/internet-services/maps/legal-en.html">Apple</a> and <a
+  <p>© <span id="currentYear"></span> <script>
+  document.getElementById("currentYear").textContent = new Date().getFullYear();
+</script> <a href="https://www.apple.com/legal/internet-services/maps/legal-en.html">Apple</a> and <a
       href="https://www.neherdata.com/">Neher Data Systems</a></p>
 </footer>
 
